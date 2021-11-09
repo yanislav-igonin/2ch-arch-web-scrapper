@@ -63,7 +63,7 @@ for page_num in range(pages_count_start, pages_count + 1):
   threads = get_threads(get_threads_html_list(html))
   df = pd.DataFrame(threads, columns=['id', 'date', 'title', 'link'])
   df.to_csv(
-    path_or_buf='dataset_links_and_titles.csv',
+    path_or_buf='dataset_id-date-title-link.csv',
     columns=['id', 'date', 'title', 'link'],
     index=False,
     mode='a'
