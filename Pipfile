@@ -7,8 +7,10 @@ name = "pypi"
 requests = "*"
 beautifulsoup4 = "*"
 pandas = "*"
+seaborn = "*"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.9"

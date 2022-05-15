@@ -3,18 +3,22 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
+# Get url of page
 def get_url(page_num: int):
   return 'https://2ch.hk/b/arch/' + str(page_num) + '.html'
 
+# Get HTML of page
 def get_html(url: str):
     page = requests.get(url)
     return page.content
+
 
 def check_not_line_break(el: PageElement):
   if el == '\n':
     return False
   return True
 
+# Check if element is thread link
 def check_is_thread_link(el: PageElement):
   if isinstance(el, str):
     return False
@@ -22,6 +26,7 @@ def check_is_thread_link(el: PageElement):
     return True
   return False
 
+# Get pages coung
 def get_pages_count(html: bytes):
   soup = BeautifulSoup(html, "html.parser")
   pagerEl = soup.find(class_="pager_arch")
@@ -29,11 +34,13 @@ def get_pages_count(html: bytes):
   count = len(pagesEls) - 1
   return count
 
+# Get threads html list element
 def get_threads_html_list(html: bytes):
   soup = BeautifulSoup(html, "html.parser")
   threadsContainerEl = soup.find(class_="box-data")
   return threadsContainerEl.children
 
+# Get threads from page
 def get_threads(html_nodes):
   threads = []
   for el in html_nodes:
