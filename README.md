@@ -26,6 +26,8 @@ Gather dataset:
 conda activate 2ch-arch-web-scrapper
 python scraper.py
 ```
+Clean dataset from every chuck header: `id,date,title,link`. Just replace it with empty row.
+
 Then you can run notebook.
 
 ## Motivation
