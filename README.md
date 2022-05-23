@@ -2,21 +2,12 @@
 Script to parse all 2ch.hk **/b** archive into csv file.
 
 ## Prerequisites
-
-???
-* pipenv installed
-
-Run to install all dependencies:
 ```sh
-pipenv install
+conda env create -f environment.yml
 ```
-????
 
+For https://code.visualstudio.com/docs/python/environments
 
-
-```sh
-conda create -n 2ch-arch-web-scrapper python=3.9
-```
 In contrast, if you fail to specify an interpreter, as with conda create --name env-00, the environment won't appear in the list.
 
 ## Motivation
