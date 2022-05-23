@@ -12,7 +12,7 @@ def get_html(url: str):
     page = requests.get(url)
     return page.content
 
-
+# Check if element is not line break
 def check_not_line_break(el: PageElement):
   if el == '\n':
     return False
@@ -41,16 +41,19 @@ def get_threads_html_list(html: bytes):
   return threadsContainerEl.children
 
 # Get threads from page
-def get_threads(html_nodes):
+def get_threads(html_nodes: list[PageElement]):
   threads = []
   for el in html_nodes:
-    if check_is_thread_link(el):
-      link = el.attrs['href']
-      id = get_thread_id_from_link(link)
-      date = get_date_from_thread_link(link)
-      title = el.text
-      thread = { 'title': title, 'link': link, 'date': date, 'id': id }
-      threads.append(thread)
+    if not check_is_thread_link(el):
+      continue
+    
+    link = el.attrs['href']
+    id = get_thread_id_from_link(link)
+    date = get_date_from_thread_link(link)
+    title = el.text
+    thread = { 'title': title, 'link': link, 'date': date, 'id': id }
+    threads.append(thread)
+
   return threads
 
 def get_thread_id_from_link(link: str):
