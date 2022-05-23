@@ -5,3 +5,5 @@ dependencies:
   - beautifulsoup4=*
   - pandas=*
   - seaborn=*
+  - ipykernel=*
+  - notebook=*
