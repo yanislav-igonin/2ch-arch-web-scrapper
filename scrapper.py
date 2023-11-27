@@ -37,7 +37,7 @@ def get_pages_count(html: bytes):
 # Get threads html list element
 def get_threads_html_list(html: bytes):
   soup = BeautifulSoup(html, "html.parser")
-  threadsContainerEl = soup.find(class_="box-data")
+  threadsContainerEl = soup.find(class_="box__data")
   return threadsContainerEl.children
 
 # Get threads from page

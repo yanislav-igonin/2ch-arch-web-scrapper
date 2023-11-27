@@ -11,7 +11,7 @@ brew install --cask miniconda
 
 Create environment from a file:
 ```bash
-conda env create -f environment.yml
+conda env create -f environment.yml python=3.9
 ```
 
 Additional info:
@@ -24,7 +24,7 @@ Additional info:
 Gather dataset:
 ```bash
 conda activate 2ch-arch-web-scrapper
-python scraper.py
+python scrapper.py
 ```
 Clean dataset from every chuck header: `id,date,title,link`. Just replace it with empty row.
 
